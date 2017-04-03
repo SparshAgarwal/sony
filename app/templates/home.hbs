@@ -1,0 +1,8 @@
+<div style="border-style:solid;border-width: 1px; width:80%; height:100px; margin:auto;">
+	<div style="margin:50px 0 0 20px;">
+		{{input type="search" name="QuerySearch" placeholder="Search query..." value=parameter}}
+		<button type="button" {{action "search" parameter}}>Search</button>
+	</div>
+</div>
+
+{{game-list model=model}}

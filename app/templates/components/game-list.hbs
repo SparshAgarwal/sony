@@ -1,0 +1,30 @@
+<div style="border-style:solid;border-width: 1px; width:80%; margin:auto;">
+	<div style="width:60%;float:left;padding:2px;">
+		<p>Total results: {{model._total}}</p>
+	</div>
+	<div style="width:35%;float:right;padding:2px;">
+		<p style="float:right;">
+			<button type="button" {{action "down" model._links.prev model.page }}>&#9666;</button>
+			{{model.page}}/{{model._totalpages}} 
+			<button type="button" {{action "up" model._links.next model.page }}>&#9656;</button> 
+		</p>
+	</div>
+	<div>
+		<ul>
+			{{#each model.streams as |game|}}
+				<table cellspacing="2" cellpadding="2" border="0" class="project_table">
+					<tbody>
+						<tr>
+							<td style="margin: 2px 0 0 0;float: left;"><img src="{{game.preview.small}}" alt="Stream preview image" ></td>
+							<td>
+								<p style="margin: 0 15px 0 15px;font-size:18px;font-weight:bold;"> {{game.channel.display_name}}</p>
+								<p style="margin: 2px 15px 0 17px;font-size:12px">{{game.channel.game}} - {{game.viewers}} viewers</p>
+								<p style="margin: 0 15px 0 17px;font-size:12px">Strean description text text text</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			{{/each}}
+		</ul>
+	</div>
+</div>
