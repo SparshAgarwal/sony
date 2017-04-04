@@ -1,22 +1,24 @@
+// model is the main object having all the data
+
 <div style="border-style:solid;border-width: 1px; width:80%; margin:auto;">
-	<div style="width:60%;float:left;padding:2px;">
+	<div style="width:60%;float:left;padding:2px;"> //This div is for total pages 
 		<p>Total results: {{model._total}}</p>
 	</div>
-	<div style="width:35%;float:right;padding:2px;">
+	<div style="width:35%;float:right;padding:2px;">  //This div is for navigation arrows.
 		<p style="float:right;">
-			<button type="button" {{action "down" model._links.prev model.page }}>&#9666;</button>
+			<button type="button" {{action "down" model._links.prev model.page }}>&#9666;</button> //&#9666 is left arrow
 			{{model.page}}/{{model._totalpages}} 
-			<button type="button" {{action "up" model._links.next model.page }}>&#9656;</button> 
+			<button type="button" {{action "up" model._links.next model.page }}>&#9656;</button>  //&#9656 is right arrow
 		</p>
 	</div>
-	<div>
+	<div> //this div is the main list of all the streams
 		<ul>
-			{{#each model.streams as |game|}}
-				<table cellspacing="2" cellpadding="2" border="0" class="project_table">
+			{{#each model.streams as |game|}}  //iterating through all the individual streamsas game
+				<table cellspacing="2" cellpadding="2" border="0" class="project_table">  // for each stream, there are 2 table cells, one for text and one for image
 					<tbody>
 						<tr>
-							<td style="margin: 2px 0 0 0;float: left;"><img src="{{game.preview.small}}" alt="Stream preview image" ></td>
-							<td>
+							<td style="margin: 2px 0 0 0;float: left;"><img src="{{game.preview.small}}" alt="Stream preview image" ></td> //first column
+							<td>																										   //second column
 								<p style="margin: 0 15px 0 15px;font-size:18px;font-weight:bold;"> {{game.channel.display_name}}</p>
 								<p style="margin: 2px 15px 0 17px;font-size:12px">{{game.channel.game}} - {{game.viewers}} viewers</p>
 								<p style="margin: 0 15px 0 17px;font-size:12px">Strean description text text text</p>

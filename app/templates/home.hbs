@@ -1,8 +1,11 @@
-<div style="border-style:solid;border-width: 1px; width:80%; height:100px; margin:auto;">
+<div style="border-style:solid;border-width: 1px; width:80%; height:100px; margin:auto;">  //This div is for search box
 	<div style="margin:50px 0 0 20px;">
 		{{input type="search" name="QuerySearch" placeholder="Search query..." value=parameter}}
-		<button type="button" {{action "search" parameter}}>Search</button>
+		<button type="button" {{action "search" parameter}}>Search</button> //here the "search" action is called which takes 
+																			//the parameter of search query and evaluates the url to get json data
 	</div>
 </div>
 
-{{game-list model=model}}
+{{game-list model=model}}	// the game-list component is called here which takes the model from home to process its own model.
+							// right now if model of home is updated(i.e. the search query is done), then the model of game-list is not updated
+							// I was not able to figure that out.
